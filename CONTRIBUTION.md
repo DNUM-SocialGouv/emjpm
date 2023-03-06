@@ -55,7 +55,7 @@ _Before_ submitting a pull request, please make sure the following is done…
 
 1.  EMJPM uses Yarn for running development scripts. If you haven't already done so, please [install yarn](https://yarnpkg.com/en/docs/install).
 
-1)  Make sure you have a compatible version of `node` installed (As of October 25th 2019, `v12.x` is recommended).
+1.  Make sure you have a compatible version of `node` installed (As of October 25th 2019, `v12.x` is recommended).
 
     ```sh
     node -v
