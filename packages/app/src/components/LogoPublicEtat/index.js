@@ -1,4 +1,4 @@
-import logo from "~public/images/Ministere_Solidarite_Autonomie_Personnes_Handicapees.png";
+import logo from "~public/images/MIN_Solidarite_Autonomie_Personnes_Handicapees_CMJN.jpg";
 
 function LogoPublicEtat(props) {
   return (
