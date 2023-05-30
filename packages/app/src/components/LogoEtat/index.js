@@ -7,4 +7,3 @@ function LogoEtat(props) {
 }
 
 export default LogoEtat;
-
