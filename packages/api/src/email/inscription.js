@@ -32,7 +32,7 @@ Bonne journée :)
 const inscriptionEmail = async (nom, prenom, email, codePostal, type) => {
   try {
     await sendEmail(
-      "support@mandoline.atlassian.net",
+      "support.emjpm@fabrique.social.gouv.fr",
       "Nouvelle inscription",
       EMAIL_RELANCE_TEXT(nom, prenom, email, codePostal, type),
       EMAIL_RELANCE_HTML(nom, prenom, email, codePostal, type)
