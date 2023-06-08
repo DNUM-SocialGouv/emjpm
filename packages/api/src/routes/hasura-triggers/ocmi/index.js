@@ -16,11 +16,13 @@ const updateMandataireMesuresFromOCMI = require("~/services/updateMandataireMesu
 
 const router = express.Router();
 
+const blobStorageDriver = config.awsEnabled ? "~/utils/aws" : "~/utils/azure";
+
 const {
   readBlob,
   getBlobContainer,
   listBlobsOrderByLastModifiedDesc,
-} = require("~/utils/azure");
+} = require(blobStorageDriver);
 
 const logger = require("~/utils/logger");
 
@@ -30,7 +32,15 @@ const {
   ocmiSyncFileLocalDirPath,
   azureAccountName,
   azureAccountKey,
+  awsAccessKey,
+  awsSecretAccess,
 } = config;
+
+const serviceCredentialId = config.awsEnabled ? awsAccessKey : azureAccountName;
+
+const serviceCredentialSecret = config.awsEnabled
+  ? awsSecretAccess
+  : azureAccountKey;
 
 const lockKey = "ocmi_sync_file";
 
@@ -69,6 +79,7 @@ router.post("/sync-file", async (req, res) => {
   if (err) {
     return res.json({ error: err });
   }
+
   return res.json({
     state: "start",
   });
@@ -82,14 +93,16 @@ async function startImportFromLocal() {
 }
 
 async function startImportFromAzure() {
-  if (!azureAccountName || !azureAccountKey) {
+  if (!serviceCredentialId || !serviceCredentialSecret) {
     logger.error(`[OCMI] AZURE_ACCOUNT_NAME or AZURE_ACCOUNT_KEY not defined`);
     return {
       state: "AZURE_ACCOUNT_NAME or AZURE_ACCOUNT_KEY not defined",
     };
   }
 
-  const container = getBlobContainer("emjpm-echange");
+  const container = await getBlobContainer(
+    config.awsOCMIBucket || "emjpm-echange"
+  );
   const [blob] = await listBlobsOrderByLastModifiedDesc(container);
 
   const result = { state: "start" };
