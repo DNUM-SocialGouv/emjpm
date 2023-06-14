@@ -12,7 +12,7 @@ const MAIN_ROLES = [
   "individuel",
   "prepose",
   "direction",
-  "ti",
+  "ti", //Magistrat
   "greffier",
   "sdpf",
   "dpfi",

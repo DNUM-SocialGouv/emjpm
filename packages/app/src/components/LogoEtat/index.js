@@ -1,4 +1,4 @@
-import logo from "~public/images/Ministere_des_Solidarites_et_de_la_Sante.png";
+import logo from "~public/images/Ministere_Solidarite_Autonomie_Personnes_Handicapees.png";
 
 function LogoEtat(props) {
   return (
