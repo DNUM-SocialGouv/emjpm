@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [25.157.1](https://github.com/DNUM-SocialGouv/emjpm/compare/v25.157.0...v25.157.1) (2023-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency objection to v2.2.16 [security] ([#2719](https://github.com/DNUM-SocialGouv/emjpm/issues/2719)) ([1dcb857](https://github.com/DNUM-SocialGouv/emjpm/commit/1dcb8574a3dd2938c0cc854ce0eab15f92878667))
+
+
+
+
+
 # [25.157.0](https://github.com/SocialGouv/emjpm/compare/v25.156.15...v25.157.0) (2023-02-27)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@emjpm/app",
-  "version": "25.157.0",
+  "version": "25.157.1",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.4.10",
