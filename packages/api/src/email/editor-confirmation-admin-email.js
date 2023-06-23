@@ -19,7 +19,7 @@ L’équipe e-mjpm.`;
 const editorConfirmationAdminEmail = async (email, name) => {
   try {
     await sendEmail(
-      "support.emjpm@fabrique.social.gouv.fr",
+      "support@mandoline.atlassian.net",
       "e-MJPM : confirmation de la demande d'accès à l'api e-MJPM",
       EMAIL_EDITOR_ADMIN_CONFIRMATION(email, name)
     );
