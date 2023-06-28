@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [25.157.2](https://github.com/DNUM-SocialGouv/emjpm/compare/v25.157.0...v25.157.2) (2023-06-28)
+
+**Note:** Version bump only for package @emjpm/app
+
+
+
+
+
 ## [25.157.1](https://github.com/DNUM-SocialGouv/emjpm/compare/v25.157.0...v25.157.1) (2023-06-20)
 
 **Note:** Version bump only for package @emjpm/app
