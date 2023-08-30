@@ -6,6 +6,7 @@ replicas: 1
 labels: {}
 host: emjpm.dev.fabrique.social.gouv.fr
 # tlsSecretName: app-certificate
+tlsEnabled: true
 tlsSecretName: wildcard-crt
 fullnameOverride: ''
 nameOverride: ''
