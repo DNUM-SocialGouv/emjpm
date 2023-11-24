@@ -16,7 +16,7 @@ const text = (url) =>
 const html = (url) =>
   `Madame, Monsieur,
   <br><br>
-    Vous êtes invité à créer un compte administrateur sur e-mjpm.
+    Vous êtes invité à créer un compte administrateur sur e-mjpm  .
     <br><br>
     Veuillez cliquer sur le lien suivant <a href=${url}>Créer mon compte</a>.
   <br><br>
