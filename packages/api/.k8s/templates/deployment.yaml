@@ -114,6 +114,16 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.secretName }}
                   key: SMTP_FROM
+            - name: IS_IGNORE_TLS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secretName }}
+                  key: IS_IGNORE_TLS
+            - name: IS_REQUIRE_TLS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secretName }}
+                  key: IS_REQUIRE_TLS
             - name: SENTRY_PUBLIC_DSN
               valueFrom:
                 secretKeyRef:

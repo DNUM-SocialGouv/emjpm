@@ -6,14 +6,14 @@ const smtpPort = config.smtpPort;
 const smtpUser = config.smtpUser;
 const smtpPass = config.smtpPass;
 const smtpFrom = config.smtpFrom;
-
-const isMailDev = smtpHost === "maildev";
+const isIgnoreTLS = config.isIgnoreTLS;
+const isRequireTLS = config.isRequireTLS;
 
 const smtpConfig = {
   host: smtpHost,
-  ignoreTLS: isMailDev,
+  ignoreTLS: isIgnoreTLS,
   port: smtpPort,
-  requireTLS: !isMailDev,
+  requireTLS: isRequireTLS,
   secure: false,
 };
 
