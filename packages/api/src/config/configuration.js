@@ -24,4 +24,6 @@ exports.getConfiguration = (env) => ({
   smtpPass: env.SMTP_PASS,
   smtpPort: env.SMTP_PORT || "25",
   smtpUser: env.SMTP_USER,
+  isIgnoreTLS: env.IS_IGNORE_TLS || true,
+  isRequireTLS: env.IS_REQUIRE_TLS || false,
 });

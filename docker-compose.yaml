@@ -96,6 +96,8 @@ services:
       SMTP_PORT: "${SMTP_PORT:-1025}"
       SMTP_USER: "${SMTP_USER:-}"
       SMTP_PASS: "${SMTP_PASS:-}"
+      IS_IGNORE_TLS: "${IS_IGNORE_TLS:-true}"
+      IS_REQUIRE_TLS: "${IS_REQUIRE_TLS:-false}"
       OCMI_SYNC_FILE_ENABLED: "${OCMI_SYNC_FILE_ENABLED:-}"
       OCMI_SYNC_FILE_LOCAL: "true"
       OCMI_FILE_PASSWORD: ${OCMI_FILE_PASSWORD:-}
