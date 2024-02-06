@@ -12,6 +12,7 @@ host: api-emjpm.dev.fabrique.social.gouv.fr
 labels: {}
 fullnameOverride: ''
 nameOverride: ''
+tlsEnabled: true
 ingress:
   annotations:
     kubernetes.io/ingress.class: nginx

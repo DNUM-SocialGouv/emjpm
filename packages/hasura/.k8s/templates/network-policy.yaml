@@ -1,7 +1,10 @@
+{{- $fullName := include "nodejs.fullname" . -}}
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: netpol-emjpm
+  name: {{ $fullName }}
+  labels:
+{{ include "nodejs.labels" . | indent 4 }}
 spec:
   ingress:
     - from:
