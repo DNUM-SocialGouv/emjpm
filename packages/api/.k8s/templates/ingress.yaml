@@ -27,7 +27,7 @@ spec:
         #   backend:
         #     serviceName: {{ $fullName }}
         #     servicePort: 4000
-        - path: /
+        - path: /api
           pathType: Prefix
           backend:
             service:
