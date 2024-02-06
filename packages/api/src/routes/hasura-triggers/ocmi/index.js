@@ -16,7 +16,7 @@ const updateMandataireMesuresFromOCMI = require("~/services/updateMandataireMesu
 
 const router = express.Router();
 
-const blobStorageDriver = config.awsEnabled ? "~/utils/aws" : "~/utils/azure";
+const blobStorageDriver = "~/utils/aws";
 
 const {
   readBlob,
