@@ -16,13 +16,11 @@ const updateMandataireMesuresFromOCMI = require("~/services/updateMandataireMesu
 
 const router = express.Router();
 
-const blobStorageDriver = require("~/utils/aws");
-
 const {
   readBlob,
   getBlobContainer,
   listBlobsOrderByLastModifiedDesc,
-} = require(blobStorageDriver);
+} = require("~/utils/aws");
 
 const logger = require("~/utils/logger");
 
