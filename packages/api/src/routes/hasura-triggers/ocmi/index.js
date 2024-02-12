@@ -307,7 +307,9 @@ async function hasBeenProcessed({ properties: { createdOn, lastModified } }) {
   }
   const processedTime = log.start_date.getTime();
   return (
+    createdOn &&
     processedTime > createdOn.getTime() &&
+    lastModified &&
     processedTime > lastModified.getTime()
   );
 }
