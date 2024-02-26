@@ -15,7 +15,7 @@ if (hostname == "localhost") {
   API_URL = protocol + "//api-" + hostname;
 }
 
-const PROD_DOMAIN = "emjpm.fabrique.social.gouv.fr";
+const PROD_DOMAIN = "emjpm.pjm.social.gouv.fr";
 const EMAIL_SUPPORT = "support.emjpm@fabrique.social.gouv.fr";
 
 const isProd = hostname === PROD_DOMAIN;
