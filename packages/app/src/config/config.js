@@ -16,7 +16,7 @@ if (hostname == "localhost") {
 }
 
 const PROD_DOMAIN = "emjpm.pjm.social.gouv.fr";
-const EMAIL_SUPPORT = "support.emjpm@fabrique.social.gouv.fr";
+const EMAIL_SUPPORT = "support@mandoline.atlassian.net";
 
 const isProd = hostname === PROD_DOMAIN;
 
