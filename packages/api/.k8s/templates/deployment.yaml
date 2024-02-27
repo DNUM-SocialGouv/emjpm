@@ -149,6 +149,26 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.secretName }}
                   key: OCMI_FILE_PASSWORD
+            - name: AWS_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  key: AWS_ENDPOINT
+                  name: emjpm-access
+            - name: AWS_ENABLED
+              valueFrom:
+                secretKeyRef:
+                  key: AWS_ENABLED
+                  name: emjpm-access
+            - name: AWS_SECRET_ACCESS
+              valueFrom:
+                secretKeyRef:
+                  key: AWS_SECRET_ACCESS
+                  name: emjpm-access
+            - name: AWS_OCMI_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  key: AWS_OCMI_BUCKET
+                  name: emjpm-access
             - name: SENTRY_ENV
               value: {{ .Values.env }}
             - name: AUTH_PRIVATE_KEY
