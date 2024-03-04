@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:
-    name: Build and deploy docker images on Harbor
+    name: Build and deploy docker images to Harbor
     runs-on: ubuntu-latest
 
     steps:
@@ -21,3 +21,14 @@ jobs:
       - name: Build Api Docker Image
         run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:${GITHUB_REF##*/} -f ./packages/api/Dockerfile .
 
+      - name: Login Harbor
+        run: docker login harbor.fabrique.social.gouv.fr -u ${{ secrets.HARBOR_USERNAME }} -p ${{ secrets.HARBOR_PASSWORD }}
+
+      - name: Push Hasura Docker Image to Harbor
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/hasura:${GITHUB_REF##*/}
+
+      - name: Push App Docker Image to Harbor
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/app:${GITHUB_REF##*/}
+
+      - name: Push Api Docker Image to Harbor
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/api:${GITHUB_REF##*/}
