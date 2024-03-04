@@ -1,0 +1,23 @@
+name: deploy
+
+on:
+  - push
+
+jobs:
+  deploy:
+    name: Build and deploy docker images on Harbor
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Hasura Docker Image
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/hasura:${GITHUB_REF##*/} -f ./packages/hasura/Dockerfile .
+
+      - name: Build App Docker Image
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/app:${GITHUB_REF##*/} -f ./packages/app/Dockerfile .
+
+      - name: Build Api Docker Image
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:${GITHUB_REF##*/} -f ./packages/api/Dockerfile .
+
