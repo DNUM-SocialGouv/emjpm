@@ -22,7 +22,7 @@ jobs:
         run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:${GITHUB_REF##*/} -f ./packages/api/Dockerfile .
 
       - name: Login Harbor
-        run: docker login harbor.fabrique.social.gouv.fr -u ${{ secrets.HARBOR_USERNAME }} -p ${{ secrets.HARBOR_PASSWORD }}
+        run: docker login harbor.fabrique.social.gouv.fr -u '${{ secrets.HARBOR_USERNAME }}' -p '${{ secrets.HARBOR_PASSWORD }}'
 
       - name: Push Hasura Docker Image to Harbor
         run: docker push harbor.fabrique.social.gouv.fr/emjpm/hasura:${GITHUB_REF##*/}
