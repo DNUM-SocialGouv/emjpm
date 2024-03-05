@@ -30,6 +30,12 @@ jobs:
       - name: Build Api Docker Image
         run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:v${{ inputs.RELEASE_VERSION }} -f ./packages/api/Dockerfile .
 
+      - name: Create Git Tag
+        run: |
+          version=v${{ inputs.RELEASE_VERSION }}
+          git tag -a $version -m "Version $version"
+          git push -u origin "$version"
+
       - name: Login Harbor
         run: docker login harbor.fabrique.social.gouv.fr -u '${{ secrets.HARBOR_USERNAME }}' -p '${{ secrets.HARBOR_PASSWORD }}'
 
