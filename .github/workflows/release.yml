@@ -1,0 +1,29 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      RELEASE_VERSION:
+        description: 'La version de la release. Exemple: 26.0.0'
+        required: true
+        type: string
+      NEXT_DEV_VERSION:
+        description: 'La prochaine version de developpement. Exemple: 26.0.1-SNAPSHOT'
+        required: true
+        type: string
+      BRANCH:
+        description: 'La branche à partir de laquelle générer la release'
+        default: develop
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.BRANCH }}
