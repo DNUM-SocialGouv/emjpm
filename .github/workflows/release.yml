@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       RELEASE_VERSION:
-        description: 'La version de la release. Exemple: v26.0.0'
+        description: 'La version de la release. Exemple: 26.0.0 (le pipeline ajoutera le préfix v à cette version)'
         required: true
         type: string
       NEXT_DEV_VERSION:
-        description: 'La prochaine version de developpement. Exemple: v26.0.1-SNAPSHOT'
+        description: 'La prochaine version de developpement. Exemple: 26.0.1-SNAPSHOT'
         required: true
         type: string
 
@@ -20,3 +20,24 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+      - name: Build Hasura Docker Image
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/hasura:v${{ inputs.RELEASE_VERSION }} -f ./packages/hasura/Dockerfile .
+
+      - name: Build App Docker Image
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/app:v${{ inputs.RELEASE_VERSION }} -f ./packages/app/Dockerfile .
+
+      - name: Build Api Docker Image
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:v${{ inputs.RELEASE_VERSION }} -f ./packages/api/Dockerfile .
+
+      - name: Login Harbor
+        run: docker login harbor.fabrique.social.gouv.fr -u '${{ secrets.HARBOR_USERNAME }}' -p '${{ secrets.HARBOR_PASSWORD }}'
+
+      - name: Push Hasura Docker Image to Harbor
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/hasura:v${{ inputs.RELEASE_VERSION }}
+
+      - name: Push App Docker Image to Harbor
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/app:v${{ inputs.RELEASE_VERSION }}
+
+      - name: Push Api Docker Image to Harbor
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/api:v${{ inputs.RELEASE_VERSION }}
