@@ -30,6 +30,11 @@ jobs:
       - name: Build Api Docker Image
         run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:v${{ inputs.RELEASE_VERSION }} -f ./packages/api/Dockerfile .
 
+      - name: Set up Git Account
+        run: |
+          git config user.name "emjpm-ci"
+          git config user.email "emjpm.ci@mail.com"
+
       - name: Create Git Tag
         run: |
           version=v${{ inputs.RELEASE_VERSION }}
