@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       RELEASE_VERSION:
-        description: 'La version de la release. Exemple: 26.0.0'
+        description: 'La version de la release. Exemple: v26.0.0'
         required: true
         type: string
       NEXT_DEV_VERSION:
-        description: 'La prochaine version de developpement. Exemple: 26.0.1-SNAPSHOT'
+        description: 'La prochaine version de developpement. Exemple: v26.0.1-SNAPSHOT'
         required: true
         type: string
 
