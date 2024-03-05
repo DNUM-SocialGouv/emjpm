@@ -11,11 +11,6 @@ on:
         description: 'La prochaine version de developpement. Exemple: 26.0.1-SNAPSHOT'
         required: true
         type: string
-      BRANCH:
-        description: 'La branche à partir de laquelle générer la release'
-        default: develop
-        required: true
-        type: string
 
 jobs:
   deploy:
@@ -25,5 +20,3 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        with:
-          ref: ${{ inputs.BRANCH }}
