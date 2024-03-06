@@ -13,4 +13,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Yarn Release
-        run: yarn release
+        run: |
+          GH_TOKEN=${{ secrets.$GH_TOKEN }}
+          yarn release
