@@ -23,11 +23,12 @@ jobs:
           yarn release
           rm .gh-token
 
+        # Documentation: https://github.com/martinbeentjes/npm-get-version-action
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
         with:
-          path: packages/api/package.json
+          path: packages/api
 
       - name: Build Hasura Docker Image
         run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/hasura:v${{ steps.package-version.outputs.current-version }} -f ./packages/hasura/Dockerfile .
