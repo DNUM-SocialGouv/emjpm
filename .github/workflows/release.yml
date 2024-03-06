@@ -14,5 +14,5 @@ jobs:
 
       - name: Yarn Release
         run: |
-          GH_TOKEN=${{ secrets.$GH_TOKEN }}
+          GH_TOKEN=${{ secrets.GH_TOKEN }}
           yarn release
