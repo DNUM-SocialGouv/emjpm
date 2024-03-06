@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [25.158.0](https://github.com/DNUM-SocialGouv/emjpm/compare/v25.157.1...v25.158.0) (2024-03-06)
+
+
+### Bug Fixes
+
+* **email:** add requireTLS and ignoreTLS in configuration ([940f48e](https://github.com/DNUM-SocialGouv/emjpm/commit/940f48e127b2cecbd826fab787964451aec19d61))
+
+
+### Features
+
+* **mando-3:** add undefined protection ([f7f0ed5](https://github.com/DNUM-SocialGouv/emjpm/commit/f7f0ed552c9b19cfb153e1df8b5afdf68a7cee94))
+* **mando-3:** update EMAIL_SUPPORT ([f3df18b](https://github.com/DNUM-SocialGouv/emjpm/commit/f3df18b9c13e16baaa0ef832a7dc989dc4a6af83))
+* **mando-3:** update PROD_DOMAIN ([3f8c0e7](https://github.com/DNUM-SocialGouv/emjpm/commit/3f8c0e712910feab178ec1ea0ed184562ec22215))
+
+
+
+
+
 ## [25.157.1](https://github.com/DNUM-SocialGouv/emjpm/compare/v25.157.0...v25.157.1) (2023-06-20)
 
 
