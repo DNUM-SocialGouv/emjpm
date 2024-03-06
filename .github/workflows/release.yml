@@ -12,6 +12,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Set up Git Account
+        run: |
+          git config user.name "emjpm-github-action"
+          git config user.email "emjpm.github.action@mail.com"
+
       - name: Yarn Release
         run: |
           echo ${{ secrets.GH_TOKEN }} > .gh-token
