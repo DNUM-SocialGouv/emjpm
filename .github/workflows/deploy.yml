@@ -13,22 +13,22 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Hasura Docker Image
-        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/hasura:v${GITHUB_REF##*/} -f ./packages/hasura/Dockerfile .
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/hasura:${GITHUB_REF##*/} -f ./packages/hasura/Dockerfile .
 
       - name: Build App Docker Image
-        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/app:v${GITHUB_REF##*/} -f ./packages/app/Dockerfile .
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/app:${GITHUB_REF##*/} -f ./packages/app/Dockerfile .
 
       - name: Build Api Docker Image
-        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:v${GITHUB_REF##*/} -f ./packages/api/Dockerfile .
+        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:${GITHUB_REF##*/} -f ./packages/api/Dockerfile .
 
       - name: Login Harbor
         run: docker login harbor.fabrique.social.gouv.fr -u '${{ secrets.HARBOR_USERNAME }}' -p '${{ secrets.HARBOR_PASSWORD }}'
 
       - name: Push Hasura Docker Image to Harbor
-        run: docker push harbor.fabrique.social.gouv.fr/emjpm/hasura:v${GITHUB_REF##*/}
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/hasura:${GITHUB_REF##*/}
 
       - name: Push App Docker Image to Harbor
-        run: docker push harbor.fabrique.social.gouv.fr/emjpm/app:v${GITHUB_REF##*/}
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/app:${GITHUB_REF##*/}
 
       - name: Push Api Docker Image to Harbor
-        run: docker push harbor.fabrique.social.gouv.fr/emjpm/api:v${GITHUB_REF##*/}
+        run: docker push harbor.fabrique.social.gouv.fr/emjpm/api:${GITHUB_REF##*/}
