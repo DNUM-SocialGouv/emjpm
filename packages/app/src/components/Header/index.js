@@ -21,13 +21,12 @@ function Header(props) {
         justifyContent="space-between"
         height="115px"
       >
-        <Box p={1}>
+        <Box>
           <Flex flexWrap="wrap" justifyContent="left">
             <Box>{!isPublicLayout ? <LogoEtat /> : <LogoPublicEtat />}</Box>
-            <Box ml={2}>
+            <Box alignItems="center" display="flex" ml={2}>
               <button
                 onClick={goToHome}
-                style={{ paddingTop: "24px" }}
                 title="Aller à l'accueil"
                 aria-label="Aller à l'acceuil"
               >
