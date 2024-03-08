@@ -1,8 +1,13 @@
-import logo from "~public/images/Ministere_Solidarite_Autonomie_Personnes_Handicapees.png";
+import logo from "~public/images/logo.png";
 
 function LogoEtat(props) {
   return (
-    <img src={logo} alt="Ministère des Solidarités et de la Santé" {...props} />
+    <img
+      src={logo}
+      height="100px"
+      alt="Ministère des Solidarités et de la Santé"
+      {...props}
+    />
   );
 }
 
