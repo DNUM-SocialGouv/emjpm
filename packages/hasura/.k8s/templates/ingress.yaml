@@ -13,6 +13,9 @@ metadata:
     nginx.ingress.kubernetes.io/configuration-snippet: |
       more_clear_headers "Server";
 spec:
+  {{ if .Values.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
+  {{ end -}}
   {{ if .Values.tlsEnabled -}}
   tls:
     - hosts:

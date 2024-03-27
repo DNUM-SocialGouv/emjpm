@@ -15,6 +15,9 @@ metadata:
       more_set_headers "X-Content-Type-Options: nosniff";
       more_set_headers "Content-Security-Policy: default-src https://matomo.fabrique.social.gouv.fr/; connect-src *.cegedim.cloud https://*.pjm.social.gouv.fr/ https://matomo.fabrique.social.gouv.fr/ https://openmaptiles.geo.data.gouv.fr/ https://openmaptiles.github.io/ https://api-adresse.data.gouv.fr https://entreprise.data.gouv.fr https://nominatim.openstreetmap.org; font-src 'self'; img-src  https://openmaptiles.github.io/ https://api.mapbox.com/ 'self' data: blob:; script-src https://matomo.fabrique.social.gouv.fr/ blob: 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://api.tiles.mapbox.com/; manifest-src 'self';";
 spec:
+  {{ if .Values.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
+  {{ end -}}
   {{ if .Values.tlsEnabled -}}
   tls:
     - hosts:
