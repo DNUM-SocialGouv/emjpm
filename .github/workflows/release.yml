@@ -31,22 +31,22 @@ jobs:
           path: packages/api
 
       - name: Build Hasura Docker Image
-        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/hasura:v${{ steps.package-version.outputs.current-version }} -f ./packages/hasura/Dockerfile .
+        run: docker build -t harbor.fabrique.social.gouv.fr/sdpsn/cs2j/emjpm/hasura:v${{ steps.package-version.outputs.current-version }} -f ./packages/hasura/Dockerfile .
 
       - name: Build App Docker Image
-        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/app:v${{ steps.package-version.outputs.current-version }} -f ./packages/app/Dockerfile .
+        run: docker build -t harbor.fabrique.social.gouv.fr/sdpsn/cs2j/emjpm/app:v${{ steps.package-version.outputs.current-version }} -f ./packages/app/Dockerfile .
 
       - name: Build Api Docker Image
-        run: docker build -t harbor.fabrique.social.gouv.fr/emjpm/api:v${{ steps.package-version.outputs.current-version }} -f ./packages/api/Dockerfile .
+        run: docker build -t harbor.fabrique.social.gouv.fr/sdpsn/cs2j/emjpm/api:v${{ steps.package-version.outputs.current-version }} -f ./packages/api/Dockerfile .
 
       - name: Login Harbor
         run: docker login harbor.fabrique.social.gouv.fr -u '${{ secrets.HARBOR_USERNAME }}' -p '${{ secrets.HARBOR_PASSWORD }}'
 
       - name: Push Hasura Docker Image to Harbor
-        run: docker push harbor.fabrique.social.gouv.fr/emjpm/hasura:v${{ steps.package-version.outputs.current-version }}
+        run: docker push harbor.fabrique.social.gouv.fr/sdpsn/cs2j/emjpm/hasura:v${{ steps.package-version.outputs.current-version }}
 
       - name: Push App Docker Image to Harbor
-        run: docker push harbor.fabrique.social.gouv.fr/emjpm/app:v${{ steps.package-version.outputs.current-version }}
+        run: docker push harbor.fabrique.social.gouv.fr/sdpsn/cs2j/emjpm/app:v${{ steps.package-version.outputs.current-version }}
 
       - name: Push Api Docker Image to Harbor
-        run: docker push harbor.fabrique.social.gouv.fr/emjpm/api:v${{ steps.package-version.outputs.current-version }}
+        run: docker push harbor.fabrique.social.gouv.fr/sdpsn/cs2j/emjpm/api:v${{ steps.package-version.outputs.current-version }}
