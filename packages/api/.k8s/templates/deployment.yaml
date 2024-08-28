@@ -24,14 +24,15 @@ spec:
 {{ include "nodejs.labels" . | indent 8 }}
     spec:
       terminationGracePeriodSeconds: 600
+      {{- with .Values.image.pullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 12 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- with .Values.image.pullSecrets }}
-          imagePullSecrets:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+
           ports:
             - name: http
               containerPort: 4000

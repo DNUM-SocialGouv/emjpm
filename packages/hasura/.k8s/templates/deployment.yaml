@@ -10,6 +10,7 @@ metadata:
 {{ include "nodejs.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
+
   strategy:
     type: RollingUpdate
   selector:
@@ -24,6 +25,10 @@ spec:
 {{ include "nodejs.labels" . | indent 8 }}
     spec:
       terminationGracePeriodSeconds: 60
+      {{- with .Values.image.pullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 12 }}
+      {{- end }}
       volumes:
         - name: hasura-metadata
           configMap:
@@ -32,10 +37,7 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- with .Values.image.pullSecrets }}
-          imagePullSecrets:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+
           volumeMounts:
             - name: hasura-metadata
               mountPath: /hasura-metadata/databases/databases.yaml
