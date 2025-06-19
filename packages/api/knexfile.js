@@ -52,6 +52,6 @@ module.exports = {
     },
     migrations: {},
     //pool,
-    pool: { acquireTimeoutMillis: 1000, max: 1, min: 1 },
+    pool: { acquireTimeoutMillis: 10000, max: 1, min: 1 },
   },
 };
