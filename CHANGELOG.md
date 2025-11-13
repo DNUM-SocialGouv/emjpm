@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 25.159.0 (2025-11-13)
+
+
+### Features
+
+* **MANDO-1975:** ajouter matomo ([67aff8c](https://github.com/DNUM-SocialGouv/emjpm/commit/67aff8c7cb55636ca82c796ce89c826b97e19bbc))
+
+
+
+
+
 ## 25.158.9 (2024-08-06)
 
 **Note:** Version bump only for package emjpm
