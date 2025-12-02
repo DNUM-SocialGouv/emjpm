@@ -19,11 +19,6 @@ const PolitiqueConfidentialitePage = () => (
         <FlexWrapper p="4" my="50px">
           <Card p={3}>
             <PolitiqueConfidentialite />
-            <iframe
-              title="suivi de votre navigation"
-              style={{ border: 0, width: "100%" }}
-              src="https://matomo.fabrique.social.gouv.fr/index.php?module=CoreAdminHome&action=optOut&language=fr&backgroundColor=&fontColor=2f3b6c&fontSize=16px&fontFamily=sans-serif"
-            />
             <p>
               Pour aller plus loin, vous pouvez consulter les fiches proposées
               par la Commission Nationale de l’Informatique et des Libertés

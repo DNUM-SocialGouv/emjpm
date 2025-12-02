@@ -28,7 +28,4 @@ export default function initTarteaucitron() {
     useExternalCss: false /* Change the default readmore link */,
   });
 
-  tarteaucitron.user.matomoId = 13;
-  tarteaucitron.user.matomoHost = "https://matomo.fabrique.social.gouv.fr/";
-  (tarteaucitron.job = tarteaucitron.job || []).push("matomo");
 }
