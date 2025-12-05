@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 25.160.0 (2025-12-05)
+
+
+### Features
+
+* **MANDO-2064:** retirer matomo fabrique ([8ddba31](https://github.com/DNUM-SocialGouv/emjpm/commit/8ddba3171f59f713829ee552bda0149e22ca91b0))
+
+
+
+
+
 # 25.159.0 (2025-11-13)
 
 
