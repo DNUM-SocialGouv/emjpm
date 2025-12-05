@@ -27,5 +27,4 @@ export default function initTarteaucitron() {
 
     useExternalCss: false /* Change the default readmore link */,
   });
-
 }
