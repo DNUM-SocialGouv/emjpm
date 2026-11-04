@@ -1,0 +1,32 @@
+name: Mirror to PIC GitLab
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["**"]
+  delete:
+  workflow_dispatch:
+
+# Une seule synchronisation à la fois, sans annuler celle en cours
+concurrency:
+  group: mirror-pic
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to PIC
+        env:
+          PIC_MIRROR_TOKEN: ${{ secrets.PIC_MIRROR_TOKEN }}
+        run: |
+          set -euo pipefail
+          git remote add pic "https://oauth2:${PIC_MIRROR_TOKEN}@pic.sg.social.gouv.fr/socialgouv/produits-dnum/citoyens/mandoline/emjpm/emjpm.git"
+          git push pic --prune --force \
+            "refs/remotes/origin/*:refs/heads/*" \
+            "^refs/remotes/origin/HEAD" \
+            "refs/tags/*:refs/tags/*"
